@@ -6,5 +6,6 @@ RUN npm install node-red-node-ui-table
 
 # Optional: expose your custom flows file if needed
 COPY flows.json /data/flows.json
+COPY settings.js /data/settings.js
 
 EXPOSE 1880

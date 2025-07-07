@@ -52,16 +52,6 @@
         "wires": []
     },
     {
-        "id": "e581b66ab78968e3",
-        "type": "comment",
-        "z": "bf91fb810eb5ad4a",
-        "name": "Flow nhận và hiển thị giá trị cảm biến hiện tại trực tiếp qua MQTT",
-        "info": "",
-        "x": 330,
-        "y": 460,
-        "wires": []
-    },
-    {
         "id": "8421e278eb816111",
         "type": "inject",
         "z": "bf91fb810eb5ad4a",
@@ -324,7 +314,7 @@
         "type": "debug",
         "z": "bf91fb810eb5ad4a",
         "name": "debug 3",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -501,94 +491,6 @@
         "wires": []
     },
     {
-        "id": "0ed8129c46b3edbc",
-        "type": "ui_chart",
-        "z": "bf91fb810eb5ad4a",
-        "name": "",
-        "group": "bf0080d54169eb07",
-        "order": 2,
-        "width": 10,
-        "height": 5,
-        "label": "Lượng điện tiêu thụ theo tháng (kWh)",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "YYYY-MM-DD HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "No data",
-        "dot": true,
-        "ymin": "0",
-        "ymax": "1000",
-        "removeOlder": "0",
-        "removeOlderPoints": "1000",
-        "removeOlderUnit": "1",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": true,
-        "colors": [
-            "#3eb31e",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2acb2a",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 1010,
-        "y": 1220,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b98072b05bf68ebd",
-        "type": "ui_chart",
-        "z": "bf91fb810eb5ad4a",
-        "name": "",
-        "group": "bf0080d54169eb07",
-        "order": 1,
-        "width": 10,
-        "height": 5,
-        "label": "Lượng điện tiêu thụ theo ngày (kWh)",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "YYYY-MM-DD HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "No data",
-        "dot": true,
-        "ymin": "0",
-        "ymax": "100",
-        "removeOlder": "0",
-        "removeOlderPoints": "1000",
-        "removeOlderUnit": "1",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": true,
-        "colors": [
-            "#d52a2a",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 1070,
-        "y": 1140,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "6bc066bfb16fb9f0",
         "type": "ui_table",
         "z": "bf91fb810eb5ad4a",
@@ -657,7 +559,7 @@
         "id": "67b31b5e41827b8f",
         "type": "http request",
         "z": "bf91fb810eb5ad4a",
-        "name": "",
+        "name": "Firebase Logs HTTP Request",
         "method": "GET",
         "ret": "txt",
         "paytoqs": "ignore",
@@ -669,8 +571,8 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 630,
-        "y": 960,
+        "x": 690,
+        "y": 940,
         "wires": [
             [
                 "f41486895238209d"
@@ -723,8 +625,8 @@
         "property": "payload",
         "action": "",
         "pretty": false,
-        "x": 770,
-        "y": 1060,
+        "x": 710,
+        "y": 1020,
         "wires": [
             [
                 "3e427c4cd1f2b7c2",
@@ -744,8 +646,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 540,
-        "y": 1060,
+        "x": 520,
+        "y": 1020,
         "wires": [
             [
                 "67b31b5e41827b8f"
@@ -774,23 +676,6 @@
         ]
     },
     {
-        "id": "a90a3ee3214ae84e",
-        "type": "debug",
-        "z": "bf91fb810eb5ad4a",
-        "name": "debug 7",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 700,
-        "y": 1180,
-        "wires": []
-    },
-    {
         "id": "ac708cea6cc4c79a",
         "type": "function",
         "z": "bf91fb810eb5ad4a",
@@ -802,8 +687,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 550,
-        "y": 1180,
+        "x": 570,
+        "y": 1140,
         "wires": [
             [
                 "a90a3ee3214ae84e"
@@ -847,7 +732,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 140,
-        "y": 1100,
+        "y": 1060,
         "wires": [
             [
                 "3f3d0fb33b9a3c6c"
@@ -875,7 +760,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 150,
-        "y": 1140,
+        "y": 1100,
         "wires": [
             [
                 "3f3d0fb33b9a3c6c"
@@ -902,8 +787,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 130,
-        "y": 1040,
+        "x": 150,
+        "y": 1020,
         "wires": [
             [
                 "e1a0f1b73bec7905"
@@ -960,7 +845,7 @@
         "type": "debug",
         "z": "bf91fb810eb5ad4a",
         "name": "debug 8",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -993,7 +878,7 @@
         "z": "bf91fb810eb5ad4a",
         "group": "70ebba2c7e43c04c",
         "name": "",
-        "order": 6,
+        "order": 7,
         "width": 0,
         "height": 0,
         "format": "<style>\n    /* Apply to any cell using \"wrap-cell\" class */\n    .wrap-cell {\n        white-space: normal !important;\n        word-break: break-word;\n        line-height: 1.2em;\n        padding-top: 6px !important;\n        padding-bottom: 6px !important;\n    }\n\n    /* Optional: reduce row spacing to match line height */\n    .nr-dashboard-cardpanel .tabulator-cell {\n        line-height: 1.2em;\n    }\n</style>\n",
@@ -1002,8 +887,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 1140,
-        "y": 1060,
+        "x": 1120,
+        "y": 960,
         "wires": [
             [
                 "6bc066bfb16fb9f0"
@@ -1011,7 +896,406 @@
         ]
     },
     {
-        "id": "77efcc15eed3bcbb",
+        "id": "44300591c3419d51",
+        "type": "http request",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 370,
+        "y": 1300,
+        "wires": [
+            [
+                "1254abaebddd8208"
+            ]
+        ]
+    },
+    {
+        "id": "1254abaebddd8208",
+        "type": "json",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 510,
+        "y": 1300,
+        "wires": [
+            [
+                "function_process_data",
+                "84ea0eb6ab285640"
+            ]
+        ]
+    },
+    {
+        "id": "e7eecf86b581152e",
+        "type": "function",
+        "z": "bf91fb810eb5ad4a",
+        "name": "Request Logs Builder",
+        "func": "// If coming from date picker, msg.payload is a timestamp (ms)\nlet selectedTimestamp = flow.get(\"selectedDate\") || Date.now();\nlet selected = new Date(selectedTimestamp);\n\n// Extract year and month for the query\nlet year = selected.getFullYear();\nlet month = selected.getMonth(); // 0-based\n\n// Start and end of the month (in UTC)\nlet monthStart = new Date(year, month, 1).getTime() / 1000;\nlet monthEnd = new Date(year, month + 1, 0, 23, 59, 59).getTime() / 1000;\n\nlet startAt = Math.floor(monthStart);\nlet endAt = Math.floor(monthEnd);\n\n// For daily reference, extract date string (YYYY-MM-DD) from local time\nlet localDateStr = selected.toISOString().split(\"T\")[0];\n\nconst secret = \"ASuvJFgwU8Vzict4x5SUyWwzG3zG7mk9LdEtUCCy\";\n\n// Build Firebase URL\nlet url = `https://aiotgroup11-lightingsystem-default-rtdb.asia-southeast1.firebasedatabase.app/power.json?orderBy=%22timestamp%22&startAt=${startAt}&endAt=${endAt}&auth=${secret}`;\n\n// Attach info to msg\nmsg.method = \"GET\";\nmsg.url = url;\nmsg.dateFilter = localDateStr;  // used later for daily filtering\nmsg.startAt = startAt;\nmsg.endAt = endAt;\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 1300,
+        "wires": [
+            [
+                "44300591c3419d51"
+            ]
+        ]
+    },
+    {
+        "id": "function_process_data",
+        "type": "function",
+        "z": "bf91fb810eb5ad4a",
+        "name": "Process Daily & Monthly Data",
+        "func": "if (!msg.payload || Object.keys(msg.payload).length === 0) {\n    node.warn(\"No data found for the selected range.\");\n    // payload is empty or undefined\n    return msg.payload;  // or set a warning\n}\n\nlet data = msg.payload;\n\nlet voltage = 3.3;\n\n// Extract selected date from msg, fallback to today\nlet dateFilter = msg.dateFilter || new Date().toISOString().split(\"T\")[0];\n\n// Convert dateFilter to Date object\nlet selectedDateObj = new Date(dateFilter + \"T00:00:00Z\");\nlet filterYear = selectedDateObj.getFullYear();\nlet filterMonth = selectedDateObj.getMonth(); // 0-based\n\nlet hourlyData = {};  // used for selected date (daily/hourly chart)\nlet dailyData = {};   // used for entire month (monthly chart)\n\nfor (let key in data) {\n    let entry = data[key];\n    if (typeof entry.current !== 'number' || !entry.timestamp) continue;\n\n    let absCurrent = Math.abs(entry.current);\n    let ts = new Date(entry.timestamp * 1000); // UTC+7\n\n    let entryDate = ts.toISOString().split(\"T\")[0];\n    let entryMonth = ts.getMonth();\n    let entryYear = ts.getFullYear();\n    let hour = ts.getHours().toString().padStart(2, '0');\n\n    let power = absCurrent * voltage;\n    let energyWh = power * (1 / 60); // 1-minute interval assumption\n\n    // Daily chart: match only the selected date\n    if (entryDate === dateFilter) {\n        if (!hourlyData[hour]) hourlyData[hour] = [];\n        hourlyData[hour].push(energyWh);\n    }\n\n    // Monthly chart: match year and month from selected date\n    if (entryMonth === filterMonth && entryYear === filterYear) {\n        if (!dailyData[entryDate]) dailyData[entryDate] = 0;\n        dailyData[entryDate] += energyWh;\n    }\n}\n\n// --- Build Daily Chart (Hourly) ---\nlet dailyLabels = [];\nlet dailyValues = [];\nfor (let h = 0; h < 24; h++) {\n    let hourStr = h.toString().padStart(2, '0');\n    let values = hourlyData[hourStr] || [];\n    let total = values.reduce((a, b) => a + b, 0);\n    dailyLabels.push(hourStr + \":00\");\n    dailyValues.push(Number(Math.max(0, total.toFixed(2))));\n}\n\n// --- Build Monthly Chart (Daily) ---\nlet sortedDays = Object.keys(dailyData).sort();\nlet monthlyLabels = [];\nlet monthlyValues = [];\nfor (let day of sortedDays) {\n    monthlyLabels.push(day);\n    monthlyValues.push(Number(Math.max(0, dailyData[day].toFixed(2))));\n}\n\nlet [year, month] = dateFilter.split(\"-\");\nlet monthLabel = `${month}-${year}`;\n\nmsg.payload = {\n    daily: {\n        labels: dailyLabels,\n        data: dailyValues,\n        title: `Lượng điện tiêu thụ trong ngày ${dateFilter}(Wh)`\n    },\n    monthly: {\n        labels: monthlyLabels,\n        data: monthlyValues,\n        title: `Lượng điện tiêu thụ trong tháng ${monthLabel}(Wh)`\n    }\n};\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 1400,
+        "wires": [
+            [
+                "function_split_charts"
+            ]
+        ]
+    },
+    {
+        "id": "function_split_charts",
+        "type": "function",
+        "z": "bf91fb810eb5ad4a",
+        "name": "Split to Daily/Monthly",
+        "func": "if (!msg.payload || Object.keys(msg.payload).length === 0){\n  return [\n  {\n    payload: []\n  },\n  {\n    payload: []\n  }\n];\n}\nlet daily = msg.payload.daily;\nlet monthly = msg.payload.monthly;\n\nlet dailyPoints = daily.labels.map((label, i) => ({\n  \"x\": \"1970-01-01T\" + label + \":00.000Z\",\n  \"y\": daily.data[i]\n}));\n\nlet monthlyPoints = monthly.labels.map((label, i) => ({\n  \"x\": label + \"T00:00:00.000Z\",\n  \"y\": monthly.data[i]\n}));\n\nreturn [\n  {\n    payload: [{\n      series: [msg.payload.daily.title],\n      labels: daily.labels,\n      data: [dailyPoints]\n    }]\n  },\n  {\n    payload: [{\n      series: [msg.payload.monthly.title],\n      labels: monthly.labels,\n      data: [monthlyPoints]\n    }]\n  }\n];\n",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 1300,
+        "wires": [
+            [
+                "ui_chart_daily",
+                "fa127186e49f37f4"
+            ],
+            [
+                "ui_chart_monthly",
+                "62820cbed87746c5"
+            ]
+        ]
+    },
+    {
+        "id": "ui_chart_daily",
+        "type": "ui_chart",
+        "z": "bf91fb810eb5ad4a",
+        "name": "Daily Avg Energy",
+        "group": "bf0080d54169eb07",
+        "order": 1,
+        "width": 10,
+        "height": 5,
+        "label": "Lượng điện tiêu thụ trong ngày (Wh)",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "No data",
+        "dot": true,
+        "ymin": "0",
+        "ymax": "20.0",
+        "removeOlder": "0",
+        "removeOlderPoints": "25",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#3fadb5",
+            "#1f77b4",
+            "#aec7e8",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1240,
+        "y": 1280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ui_chart_monthly",
+        "type": "ui_chart",
+        "z": "bf91fb810eb5ad4a",
+        "name": "Monthly Total Energy",
+        "group": "bf0080d54169eb07",
+        "order": 2,
+        "width": 10,
+        "height": 5,
+        "label": "Lượng điện tiêu thụ trong tháng (Wh)",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "No data",
+        "dot": true,
+        "ymin": "0",
+        "ymax": "1000",
+        "removeOlder": "0",
+        "removeOlderPoints": "31",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#ff9900",
+            "#66aa00",
+            "#f62c2c",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1240,
+        "y": 1320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "62820cbed87746c5",
+        "type": "debug",
+        "z": "bf91fb810eb5ad4a",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "fa127186e49f37f4",
+        "type": "debug",
+        "z": "bf91fb810eb5ad4a",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1070,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "a90a3ee3214ae84e",
+        "type": "debug",
+        "z": "bf91fb810eb5ad4a",
+        "name": "debug 7",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "e1ed0c6e1405d7be",
+        "type": "ui_date_picker",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "label": "Lọc theo ngày/tháng.",
+        "group": "bf0080d54169eb07",
+        "order": 3,
+        "width": 10,
+        "height": 1,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 280,
+        "y": 1420,
+        "wires": [
+            [
+                "7641ce70691103f2"
+            ]
+        ]
+    },
+    {
+        "id": "84ea0eb6ab285640",
+        "type": "debug",
+        "z": "bf91fb810eb5ad4a",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "7641ce70691103f2",
+        "type": "function",
+        "z": "bf91fb810eb5ad4a",
+        "name": "function 1",
+        "func": "// When user selects a date or it's auto-set\nflow.set(\"selectedDate\", msg.payload);  // timestamp (ms)\nreturn {};  // don't need to pass forward",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 1460,
+        "wires": [
+            [
+                "e7eecf86b581152e"
+            ]
+        ]
+    },
+    {
+        "id": "0db601025066726b",
+        "type": "inject",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 1180,
+        "wires": [
+            [
+                "e7eecf86b581152e"
+            ]
+        ]
+    },
+    {
+        "id": "c5718f442f70e583",
+        "type": "inject",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 1380,
+        "wires": [
+            [
+                "e1ed0c6e1405d7be"
+            ]
+        ]
+    },
+    {
+        "id": "029e153073de2b87",
+        "type": "ui_button",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "group": "bf0080d54169eb07",
+        "order": 2,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "🔄Refresh",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 170,
+        "y": 1480,
+        "wires": [
+            [
+                "e1ed0c6e1405d7be"
+            ]
+        ]
+    },
+    {
+        "id": "40455dde01297049",
+        "type": "ui_spacer",
+        "z": "bf91fb810eb5ad4a",
+        "name": "spacer",
+        "group": "bf0080d54169eb07",
+        "order": 4,
+        "width": 10,
+        "height": 1
+    },
+    {
+        "id": "c783a17022a16d07",
         "type": "ui_spacer",
         "z": "bf91fb810eb5ad4a",
         "name": "spacer",
@@ -1021,7 +1305,7 @@
         "height": 1
     },
     {
-        "id": "cd76f44643b8b37b",
+        "id": "aa259551cfd6f6e3",
         "type": "ui_spacer",
         "z": "bf91fb810eb5ad4a",
         "name": "spacer",
@@ -1095,22 +1379,22 @@
         "className": ""
     },
     {
-        "id": "bf0080d54169eb07",
+        "id": "70ebba2c7e43c04c",
         "type": "ui_group",
-        "name": "Lịch sử điện tiêu thụ",
+        "name": "Hoạt động gần nhất",
         "tab": "d30d08299037fce8",
-        "order": 1,
+        "order": 2,
         "disp": true,
         "width": 20,
         "collapse": false,
         "className": ""
     },
     {
-        "id": "70ebba2c7e43c04c",
+        "id": "bf0080d54169eb07",
         "type": "ui_group",
-        "name": "Hoạt động gần nhất",
+        "name": "Lịch sử điện tiêu thụ",
         "tab": "d30d08299037fce8",
-        "order": 2,
+        "order": 1,
         "disp": true,
         "width": 20,
         "collapse": false,
