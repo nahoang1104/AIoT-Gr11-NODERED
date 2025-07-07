@@ -1,0 +1,1137 @@
+[
+    {
+        "id": "bf91fb810eb5ad4a",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8ed2dfd6510fad3a",
+        "type": "ui_switch",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "label": "Tắt/Bật Đèn A",
+        "tooltip": "",
+        "group": "24a10c4b88df729a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "Trạng thái đèn A",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "aOn",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "aOff",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 520,
+        "y": 520,
+        "wires": [
+            [
+                "48c8c287d9641c4d"
+            ]
+        ]
+    },
+    {
+        "id": "3eb517d0a52a81b4",
+        "type": "comment",
+        "z": "bf91fb810eb5ad4a",
+        "name": "Flow điều khiển từ xa",
+        "info": "",
+        "x": 200,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "e581b66ab78968e3",
+        "type": "comment",
+        "z": "bf91fb810eb5ad4a",
+        "name": "Flow nhận và hiển thị giá trị cảm biến hiện tại trực tiếp qua MQTT",
+        "info": "",
+        "x": 330,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "8421e278eb816111",
+        "type": "inject",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "topic": "inject",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 360,
+        "wires": [
+            [
+                "d2f06aaefdcef30d"
+            ]
+        ]
+    },
+    {
+        "id": "ed91eb0c20d2043a",
+        "type": "comment",
+        "z": "bf91fb810eb5ad4a",
+        "name": "Flow cho chức năng đăng nhập/đăng ký tài khoản",
+        "info": "",
+        "x": 260,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "48c8c287d9641c4d",
+        "type": "mqtt out",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "topic": "home/22127392clc/relayControl/a",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "787c15375433df86",
+        "x": 840,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "430f93b94cc6165f",
+        "type": "ui_switch",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "label": "Tắt/Bật Đèn B",
+        "tooltip": "",
+        "group": "24a10c4b88df729a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "true",
+        "topic": "Trạng thái đèn B",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "bOn",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "bOff",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 520,
+        "y": 580,
+        "wires": [
+            [
+                "eb533d982d3409bd"
+            ]
+        ]
+    },
+    {
+        "id": "f2a6a53fc98c1def",
+        "type": "mqtt in",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "topic": "home/22127392clc/relayState",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "787c15375433df86",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 540,
+        "wires": [
+            [
+                "8ed2dfd6510fad3a",
+                "430f93b94cc6165f",
+                "431cf8fd683db0aa"
+            ]
+        ]
+    },
+    {
+        "id": "81e5ee6677e15799",
+        "type": "ui_time_scheduler",
+        "z": "bf91fb810eb5ad4a",
+        "group": "a10e63e8134491e0",
+        "name": "Hẹn giờ đèn A",
+        "startDay": "1",
+        "refresh": 60,
+        "devices": [
+            "Đèn A"
+        ],
+        "singleOff": true,
+        "onlySendChange": false,
+        "customPayload": false,
+        "eventMode": false,
+        "eventOptions": [],
+        "sendTopic": true,
+        "lat": "10.818328",
+        "lon": "106.766971",
+        "customContextStore": "default",
+        "outputs": 2,
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "x": 180,
+        "y": 660,
+        "wires": [
+            [
+                "eaa3b7c734879824",
+                "ae5423435ce3ba7e"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "eaa3b7c734879824",
+        "type": "function",
+        "z": "bf91fb810eb5ad4a",
+        "name": "Schedule Once Logic",
+        "func": "// Step 1: Parse string to object\nlet data = JSON.parse(msg.payload);\n\n// Step 2: Check timers array\nif (data.timers && data.timers.length > 0) {\n    // Get the last timer\n    let lastTimer = data.timers[data.timers.length - 1];\n\n    // Step 3: Create new object with only the last timer\n    msg.payload = {\n        timers: [lastTimer],\n        settings: data.settings || {},\n        device: \"a\"\n    };\n\n    // Step 4: Convert back to string\n\n    return msg;\n} else {\n    // If no timers, send empty\n    msg.payload = {\n        timers: [],\n        settings: data.settings || {},\n        device: \"a\"\n    };\n\n    return msg;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 660,
+        "wires": [
+            [
+                "2ff37df89d815e81",
+                "3a27a6d225d19890",
+                "4d80311d6670ab17",
+                "7afc6f20ca1b9967"
+            ]
+        ]
+    },
+    {
+        "id": "3a27a6d225d19890",
+        "type": "function",
+        "z": "bf91fb810eb5ad4a",
+        "name": "Unix Time Format",
+        "func": "// Parse timers from payload\nlet timers = msg.payload.timers;\n\nfunction convertToTimeString(timestamp) {\n    let date = new Date(timestamp);\n    let vietnamTime = new Date(date.getTime() + (7 * 60 * 60 * 1000));\n    let hours = vietnamTime.getUTCHours().toString().padStart(2, '0');\n    let minutes = vietnamTime.getUTCMinutes().toString().padStart(2, '0');\n    let seconds = vietnamTime.getUTCSeconds().toString().padStart(2, '0');\n    return `${hours}:${minutes}:${seconds}`;\n}\n\n// Check if timers exist\nif (timers && timers.length > 0\n&& !(\"disabled\" in timers[0])) {\n    // Convert to Date object\n    let startString = convertToTimeString(timers[0].starttime);\n    let endString = convertToTimeString(timers[0].endtime);\n\n    // Output\n    msg.payload = `${startString}|${endString}|${timers[0].days}|a`;\n}\nelse\n{\n    msg.payload = 'a';\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 660,
+        "wires": [
+            [
+                "22f64c7553b24231",
+                "370f54e719c4fc38"
+            ]
+        ]
+    },
+    {
+        "id": "2ff37df89d815e81",
+        "type": "json",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 230,
+        "y": 740,
+        "wires": [
+            [
+                "81e5ee6677e15799"
+            ]
+        ]
+    },
+    {
+        "id": "370f54e719c4fc38",
+        "type": "mqtt out",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "topic": "home/22127392clc/relaySchedule/a",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "787c15375433df86",
+        "x": 920,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "ae5423435ce3ba7e",
+        "type": "debug",
+        "z": "bf91fb810eb5ad4a",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "4d80311d6670ab17",
+        "type": "debug",
+        "z": "bf91fb810eb5ad4a",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "22f64c7553b24231",
+        "type": "debug",
+        "z": "bf91fb810eb5ad4a",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "90ffda7df7829bb6",
+        "type": "ui_time_scheduler",
+        "z": "bf91fb810eb5ad4a",
+        "group": "f154a3307f684ab4",
+        "name": "Hẹn giờ đèn B",
+        "startDay": "1",
+        "refresh": 60,
+        "devices": [
+            "Đèn B"
+        ],
+        "singleOff": true,
+        "onlySendChange": false,
+        "customPayload": false,
+        "eventMode": false,
+        "eventOptions": [],
+        "sendTopic": true,
+        "lat": "10.818328",
+        "lon": "106.766971",
+        "customContextStore": "default",
+        "outputs": 2,
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "x": 180,
+        "y": 860,
+        "wires": [
+            [
+                "ea4324b2be119436",
+                "ae5423435ce3ba7e"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "ea4324b2be119436",
+        "type": "function",
+        "z": "bf91fb810eb5ad4a",
+        "name": "Schedule Once Logic",
+        "func": "// Step 1: Parse string to object\nlet data = JSON.parse(msg.payload);\n\n// Step 2: Check timers array\nif (data.timers && data.timers.length > 0) {\n    // Get the last timer\n    let lastTimer = data.timers[data.timers.length - 1];\n\n    // Step 3: Create new object with only the last timer\n    msg.payload = {\n        timers: [lastTimer],\n        settings: data.settings || {},\n        device: \"b\"\n    };\n\n    // Step 4: Convert back to string\n\n    return msg;\n} else {\n    // If no timers, send empty\n    msg.payload = {\n        timers: [],\n        settings: data.settings || {},\n        device: \"b\"\n    };\n\n    return msg;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 860,
+        "wires": [
+            [
+                "a3f8bdee7db167e4",
+                "10a1968899266722",
+                "4d80311d6670ab17",
+                "7afc6f20ca1b9967"
+            ]
+        ]
+    },
+    {
+        "id": "10a1968899266722",
+        "type": "function",
+        "z": "bf91fb810eb5ad4a",
+        "name": "Unix Time Format",
+        "func": "// Parse timers from payload\nlet timers = msg.payload.timers;\n\nfunction convertToTimeString(timestamp) {\n    let date = new Date(timestamp);\n    let vietnamTime = new Date(date.getTime() + (7 * 60 * 60 * 1000));\n    let hours = vietnamTime.getUTCHours().toString().padStart(2, '0');\n    let minutes = vietnamTime.getUTCMinutes().toString().padStart(2, '0');\n    let seconds = vietnamTime.getUTCSeconds().toString().padStart(2, '0');\n    return `${hours}:${minutes}:${seconds}`;\n}\n\n// Check if timers exist\nif (timers && timers.length > 0\n&& !(\"disabled\" in timers[0])) {\n    // Convert to Date object\n    let startString = convertToTimeString(timers[0].starttime);\n    let endString = convertToTimeString(timers[0].endtime);\n\n    // Output\n    msg.payload = `${startString}|${endString}|${timers[0].days}|b`;\n}\nelse\n{\n    msg.payload = 'b';\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 860,
+        "wires": [
+            [
+                "22f64c7553b24231",
+                "f042c6fc62f999b6"
+            ]
+        ]
+    },
+    {
+        "id": "a3f8bdee7db167e4",
+        "type": "json",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "property": "payload",
+        "action": "str",
+        "pretty": false,
+        "x": 230,
+        "y": 780,
+        "wires": [
+            [
+                "90ffda7df7829bb6"
+            ]
+        ]
+    },
+    {
+        "id": "eb533d982d3409bd",
+        "type": "mqtt out",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "topic": "home/22127392clc/relayControl/b",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "787c15375433df86",
+        "x": 840,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "f042c6fc62f999b6",
+        "type": "mqtt out",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "topic": "home/22127392clc/relaySchedule/b",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "787c15375433df86",
+        "x": 920,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "d2f06aaefdcef30d",
+        "type": "function",
+        "z": "bf91fb810eb5ad4a",
+        "name": "Setup Login khi chạy lần đầu",
+        "func": "const admin = flow.get('admin', 'persistent');\nif (!admin) {\n    flow.set('admin', { username: \"admin\", password: \"12345\" }, 'persistent');\n}\n\nconst users = flow.get('users', 'persistent');\nif (!users || users.length === 0) {\n    flow.set('users', [], 'persistent');\n}\nmsg.payload = {\n    \"tabs\": {\n        \"hide\": [\n            \"Điều khiển\",\n            \"Chi tiết hoạt động\",\n            \"Thông số hoạt động\",\n            \"Tài khoản\"\n        ],\n        \"show\": \"Login\"\n    },\n    \"group\": {\n        \"hide\": [\n            \"Login_Đăng_ký\"\n        ],\n        \"show\": \"Login_Đăng_nhập\"\n    },\n    \"tab\": \"Login\"\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "431cf8fd683db0aa",
+        "type": "debug",
+        "z": "bf91fb810eb5ad4a",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 330,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "0ed8129c46b3edbc",
+        "type": "ui_chart",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "group": "bf0080d54169eb07",
+        "order": 2,
+        "width": 10,
+        "height": 5,
+        "label": "Lượng điện tiêu thụ theo tháng (kWh)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "YYYY-MM-DD HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "No data",
+        "dot": true,
+        "ymin": "0",
+        "ymax": "1000",
+        "removeOlder": "0",
+        "removeOlderPoints": "1000",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#3eb31e",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2acb2a",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1010,
+        "y": 1220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b98072b05bf68ebd",
+        "type": "ui_chart",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "group": "bf0080d54169eb07",
+        "order": 1,
+        "width": 10,
+        "height": 5,
+        "label": "Lượng điện tiêu thụ theo ngày (kWh)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "YYYY-MM-DD HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "No data",
+        "dot": true,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "0",
+        "removeOlderPoints": "1000",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#d52a2a",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1070,
+        "y": 1140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6bc066bfb16fb9f0",
+        "type": "ui_table",
+        "z": "bf91fb810eb5ad4a",
+        "group": "70ebba2c7e43c04c",
+        "name": "",
+        "order": 1,
+        "width": 20,
+        "height": 4,
+        "columns": [],
+        "outputs": 0,
+        "cts": false,
+        "x": 1270,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "03b7f8f711ae1dc1",
+        "type": "inject",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 960,
+        "wires": [
+            [
+                "e1a0f1b73bec7905"
+            ]
+        ]
+    },
+    {
+        "id": "e1a0f1b73bec7905",
+        "type": "function",
+        "z": "bf91fb810eb5ad4a",
+        "name": "Paging Default",
+        "func": "let pageSize = 15;\nflow.set(\"pageSize\", pageSize);\nflow.set(\"direction\", \"initial\");\nflow.set(\"history\", [null]);\nflow.set(\"currentPage\", 0);\nreturn { payload: null };",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 960,
+        "wires": [
+            [
+                "58632c572970d61d"
+            ]
+        ]
+    },
+    {
+        "id": "67b31b5e41827b8f",
+        "type": "http request",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 630,
+        "y": 960,
+        "wires": [
+            [
+                "f41486895238209d"
+            ]
+        ]
+    },
+    {
+        "id": "6f30697094fbe7e0",
+        "type": "debug",
+        "z": "bf91fb810eb5ad4a",
+        "name": "debug 5",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "3e427c4cd1f2b7c2",
+        "type": "function",
+        "z": "bf91fb810eb5ad4a",
+        "name": "Activity Format",
+        "func": "let data = msg.payload;\nif (!data) return null;\n\nlet rows = [];\nlet keys = Object.keys(data).sort();\nconst direction = flow.get(\"direction\") || \"initial\";\n\nlet newNextKey = keys[0];\nlet newCurrentKey = keys[keys.length - 1];\n\nlet history = flow.get(\"history\") || [null];\nconst currentPage = flow.get(\"currentPage\") || 0;\n\nif (currentPage == history.length - 1 && keys.length >= 15)\n{\n    history.push(newNextKey);\n}\nhistory[currentPage] = newCurrentKey;\n\nfunction ViDateTime(timestamp)\n{\n    return new Date(timestamp * 1000 - 25200000).toLocaleString(\"vi-VN\");\n}\n\nfunction ViTime(timestamp)\n{\n    return new Date(timestamp * 1000 - 25200000)\n              .toLocaleTimeString(\"vi-VN\", { hour: '2-digit', minute: '2-digit' });\n}\n\nfunction formatData(item)\n{\n    let event = \"\";\n    let note = \"\";\n    let device = item.device === \"a\" ? \"Đèn phòng khách\":\"Đèn phòng ngủ\";\n    if(item.src === \"web\")\n    {\n        event = item.action ? \" được bật\" : \" được tắt\";\n        note = \"Thông qua điều khiển web\";\n    }\n    else if(item.src === \"reset\")\n    {\n        if(item.device === \"esp\")\n            device = \"ESP32\";\n        event = \" khởi động lại\";\n        switch (item.action) {\n            case 1: note = \"ESP32 vừa được bắt đầu khởi động\"; break;\n            case 2: note = \"External reset: Nút reset được nhấn\"; break;\n            case 3: note = \"Software reset: Phần mềm yêu cầu khởi động lại\"; break;\n            case 4: note = \"Crash reset: Phần mềm bị crash\"; break;\n            case 5: note = \"Interrupt watchdog: Hệ thống bị gián đoạn\"; break;\n            case 6: note = \"Task watchdog: Task dừng phản hồi\"; break;\n            case 7: note = \"Watchdog reset: Hệ thống bị đứng\"; break;\n            case 8: note = \"ESP32 vừa thức dậy (thoát khổi sleep mode)\"; break;\n            case 9: note = \"Nguồn điện yếu hoặc mất điện\"; break;\n            case 10: note = \"SDIO reset\"; break;\n            case 11: note = \"Reset thông qua USB\"; break;\n            case 12: note = \"JTAG reset: Reset bởi tool debug\"; break;\n            default: note = \"Nguyên nhân không xác định\";\n        }\n    }\n    else if(item.src === \"webT\")\n    {\n        if(item.action === \"clear\"){\n            event = \" đã hủy hẹn giờ\";\n        }\n        else{\n            const weekdayNames = [\n                \"Chủ nhật\", \"Hai\", \n                \"Ba\", \"Tư\", \n                \"Năm\", \"Sáu\", \"Bảy\"\n            ];\n\n            let action = item.action;\n            let activeDays = action.weekdays\n                .map((val, index) => val ? weekdayNames[index] : null)\n                .filter(day => day !== null);\n            let logString = activeDays.length > 0\n                ? \"Lịch áp dụng vào thứ: \" + activeDays.join(\", \")\n                : \"Chưa có lịch các ngày áp dụng trong tuần\";\n\n            event =  ViTime(action.start) + \" và tắt lúc \" +\n                ViTime(action.end);\n            event = action.disable ? \" đã vô hiệu hoá hẹn giờ bật lúc \" + event\n            : \" đã cập nhật hẹn giờ bật lúc \" + event;  \n            note = logString          \n        }\n    }\n    else if(item.src === \"t\")\n    {\n        event = item.action ? \" được bật\" : \" được tắt\";\n        note = \"Thông qua hẹn giờ\";\n    }\n\n    return {\n        \"Thời gian\": ViDateTime(item.timestamp),\n        \"Thiết bị\": device,\n        \"Sự kiện\": device + event,\n        \"Ghi chú\": note\n    }\n}\n\n// Format log entries\nkeys.forEach(k => {\n    const item = data[k];\n    rows.push(formatData(item));\n});\n\n// Reverse to show most recent first\nif(currentPage != 0 && rows.length > 1)\n    rows.pop();\nrows.reverse();\nmsg.payload = rows;\nmsg.ui_control = {\n    tabulator: {\n        layout: \"fitColumns\",\n        columns: [\n            {\n                title: \"Thời gian\",\n                field: \"Thời gian\",\n                cssClass: \"wrap-cell\"\n            },\n            {\n                title: \"Thiết bị\",\n                field: \"Thiết bị\",\n                cssClass: \"wrap-cell\"\n            },\n            {\n                title: \"Sự kiện\",\n                field: \"Sự kiện\",\n                cssClass: \"wrap-cell\"\n            },\n            {\n                title: \"Ghi chú\",\n                field: \"Ghi chú\",\n                cssClass: \"wrap-cell\"\n            }\n        ]\n    }\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 1000,
+        "wires": [
+            [
+                "6bc066bfb16fb9f0",
+                "6f30697094fbe7e0",
+                "ac708cea6cc4c79a"
+            ]
+        ]
+    },
+    {
+        "id": "f41486895238209d",
+        "type": "json",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 770,
+        "y": 1060,
+        "wires": [
+            [
+                "3e427c4cd1f2b7c2",
+                "cc0742bdf16a01a3"
+            ]
+        ]
+    },
+    {
+        "id": "58632c572970d61d",
+        "type": "function",
+        "z": "bf91fb810eb5ad4a",
+        "name": "Request Logs Builder",
+        "func": "const basePath = \"https://aiotgroup11-lightingsystem-default-rtdb.asia-southeast1.firebasedatabase.app/activity_logs.json\";\nconst secret = \"ASuvJFgwU8Vzict4x5SUyWwzG3zG7mk9LdEtUCCy\";\nconst pageSize = flow.get(\"pageSize\") || 15;\nconst direction = flow.get(\"direction\") || \"initial\";\nconst currentPage = flow.get(\"currentPage\") || 0;\nlet history = flow.get(\"history\") || [null];\n\nlet url;\n\nif (direction === \"initial\" || currentPage == 0) {\n    url = `${basePath}?orderBy=\\\"$key\\\"&limitToLast=${pageSize}&auth=${secret}`;\n}\nelse{\n    url = `${basePath}?orderBy=\\\"$key\\\"&endAt=\\\"${history[currentPage]}\\\"&limitToLast=${pageSize + 1}&auth=${secret}`;\n}\n\nmsg.method = \"GET\";\nmsg.url = url;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 1060,
+        "wires": [
+            [
+                "67b31b5e41827b8f"
+            ]
+        ]
+    },
+    {
+        "id": "3f3d0fb33b9a3c6c",
+        "type": "function",
+        "z": "bf91fb810eb5ad4a",
+        "name": "Paging Navigate",
+        "func": "flow.set(\"direction\", msg.payload);\nconst history = flow.get(\"history\") || [null];\nlet currentPage = flow.get(\"currentPage\") || 0;\nif(msg.payload === \"next\")\n    ++currentPage;\nelse\n    --currentPage;\n\nif(currentPage > history.length - 1)\n{\n    --currentPage;\n}\n\nif (currentPage < 0) {\n    currentPage = 0;\n}\n\nflow.set(\"currentPage\", currentPage);\nreturn {};",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 1060,
+        "wires": [
+            [
+                "58632c572970d61d",
+                "ac708cea6cc4c79a"
+            ]
+        ]
+    },
+    {
+        "id": "a90a3ee3214ae84e",
+        "type": "debug",
+        "z": "bf91fb810eb5ad4a",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "ac708cea6cc4c79a",
+        "type": "function",
+        "z": "bf91fb810eb5ad4a",
+        "name": "Debug",
+        "func": "return {\n    payload: {\n        pageSize: flow.get(\"pageSize\"),\n        direction: flow.get(\"direction\"),\n        lascurrentPage: flow.get(\"currentPage\"),\n        history: flow.get(\"history\")\n    }\n};\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 1180,
+        "wires": [
+            [
+                "a90a3ee3214ae84e"
+            ]
+        ]
+    },
+    {
+        "id": "cc0742bdf16a01a3",
+        "type": "debug",
+        "z": "bf91fb810eb5ad4a",
+        "name": "debug 6",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 940,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "f3b426e2dba73113",
+        "type": "ui_button",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "group": "70ebba2c7e43c04c",
+        "order": 5,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "Cũ hơn >",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "next",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 140,
+        "y": 1100,
+        "wires": [
+            [
+                "3f3d0fb33b9a3c6c"
+            ]
+        ]
+    },
+    {
+        "id": "f21f787e147226cf",
+        "type": "ui_button",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "group": "70ebba2c7e43c04c",
+        "order": 4,
+        "width": 6,
+        "height": 1,
+        "passthru": false,
+        "label": "< Mới hơn",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "back",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 150,
+        "y": 1140,
+        "wires": [
+            [
+                "3f3d0fb33b9a3c6c"
+            ]
+        ]
+    },
+    {
+        "id": "d438ee945e80beef",
+        "type": "ui_button",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "group": "70ebba2c7e43c04c",
+        "order": 2,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "🔄Refresh",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 130,
+        "y": 1040,
+        "wires": [
+            [
+                "e1a0f1b73bec7905"
+            ]
+        ]
+    },
+    {
+        "id": "7afc6f20ca1b9967",
+        "type": "function",
+        "z": "bf91fb810eb5ad4a",
+        "name": "Firebase Upload",
+        "func": "const baseUrl = \"https://aiotgroup11-lightingsystem-default-rtdb.asia-southeast1.firebasedatabase.app/\";\nconst path = \"activity_logs\"; // Adjust this path as needed\nconst auth = \"ASuvJFgwU8Vzict4x5SUyWwzG3zG7mk9LdEtUCCy\"; // NOT RECOMMENDED for production\n\nmsg.method = \"POST\";  // or PATCH if updating multiple keys\nmsg.url = `${baseUrl}${path}.json?auth=${auth}`;\nmsg.headers = {\n    \"Content-Type\": \"application/json\"\n};\n\nlet timers = msg.payload.timers;\n\nif (timers && timers.length > 0) {\n    // Output\n    if(!(\"disabled\" in timers[0])){\n        msg.payload = {\n            action:{\n                start: timers[0].starttime,\n                end: timers[0].endtime,\n                weekdays:timers[0].days,\n                disable:false\n            },\n            device:msg.payload.device,\n            src: \"webT\",\n            timestamp: Math.floor(Date.now() / 1000+ 25200000)\n        };\n    }\n    else{\n        msg.payload = {\n            action:{\n                start: timers[0].starttime,\n                end: timers[0].endtime,\n                weekdays:timers[0].days,\n                disable:true\n            },\n            device:msg.payload.device,\n            src: \"webT\",\n            timestamp: Math.floor(Date.now() / 1000 + 25200000) \n        };\n    }\n}\nelse\n{\n    msg.payload = {\n        action:\"clear\",\n        device:msg.payload.device,\n        src: \"webT\",\n        timestamp: Math.floor(Date.now() / 1000+ 25200000)\n    };\n} // switch state: true or false\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 760,
+        "wires": [
+            [
+                "a03eb3e9a1e43e5f",
+                "781d3756edcc74e1"
+            ]
+        ]
+    },
+    {
+        "id": "9cef9c0d2f665777",
+        "type": "http request",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1130,
+        "y": 760,
+        "wires": [
+            [
+                "a03eb3e9a1e43e5f"
+            ]
+        ]
+    },
+    {
+        "id": "a03eb3e9a1e43e5f",
+        "type": "debug",
+        "z": "bf91fb810eb5ad4a",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "781d3756edcc74e1",
+        "type": "json",
+        "z": "bf91fb810eb5ad4a",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1010,
+        "y": 720,
+        "wires": [
+            [
+                "9cef9c0d2f665777"
+            ]
+        ]
+    },
+    {
+        "id": "548bebd12bf728d1",
+        "type": "ui_template",
+        "z": "bf91fb810eb5ad4a",
+        "group": "70ebba2c7e43c04c",
+        "name": "",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n    /* Apply to any cell using \"wrap-cell\" class */\n    .wrap-cell {\n        white-space: normal !important;\n        word-break: break-word;\n        line-height: 1.2em;\n        padding-top: 6px !important;\n        padding-bottom: 6px !important;\n    }\n\n    /* Optional: reduce row spacing to match line height */\n    .nr-dashboard-cardpanel .tabulator-cell {\n        line-height: 1.2em;\n    }\n</style>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1140,
+        "y": 1060,
+        "wires": [
+            [
+                "6bc066bfb16fb9f0"
+            ]
+        ]
+    },
+    {
+        "id": "77efcc15eed3bcbb",
+        "type": "ui_spacer",
+        "z": "bf91fb810eb5ad4a",
+        "name": "spacer",
+        "group": "70ebba2c7e43c04c",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "cd76f44643b8b37b",
+        "type": "ui_spacer",
+        "z": "bf91fb810eb5ad4a",
+        "name": "spacer",
+        "group": "70ebba2c7e43c04c",
+        "order": 6,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "24a10c4b88df729a",
+        "type": "ui_group",
+        "name": "Tắt/Bật Đèn",
+        "tab": "ce156c4f2fa67e8b",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "787c15375433df86",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "90",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "a10e63e8134491e0",
+        "type": "ui_group",
+        "name": "Thiết đặt hẹn giờ đèn A",
+        "tab": "ce156c4f2fa67e8b",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f154a3307f684ab4",
+        "type": "ui_group",
+        "name": "Thiết lập hèn giờ đèn B",
+        "tab": "ce156c4f2fa67e8b",
+        "order": 4,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bf0080d54169eb07",
+        "type": "ui_group",
+        "name": "Lịch sử điện tiêu thụ",
+        "tab": "d30d08299037fce8",
+        "order": 1,
+        "disp": true,
+        "width": 20,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "70ebba2c7e43c04c",
+        "type": "ui_group",
+        "name": "Hoạt động gần nhất",
+        "tab": "d30d08299037fce8",
+        "order": 2,
+        "disp": true,
+        "width": 20,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ce156c4f2fa67e8b",
+        "type": "ui_tab",
+        "name": "Điều khiển",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "d30d08299037fce8",
+        "type": "ui_tab",
+        "name": "Thông số hoạt động",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    }
+]
