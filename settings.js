@@ -3,7 +3,7 @@ module.exports = {
     type: "credentials",
     users: [{
       username: "admin",
-      password: "$2b$08$W8UkW1UfpK0WEN.XTgxYFOKtF9yC5J7RxMiPuY8Ah/8IQ7F6vhORa", // password = mypassword
+      password: "$2a$08$AASntuBgjkOEyUKe236EyO/wBCGVWnx41BQa5usc6oDQwdMvTdjVy", // password = mypassword
       permissions: "*"
     }]
   },
