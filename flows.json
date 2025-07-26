@@ -12,7 +12,7 @@
         "type": "ui_switch",
         "z": "bf91fb810eb5ad4a",
         "name": "",
-        "label": "Tắt/Bật Đèn A",
+        "label": "Tắt/Bật Đèn phòng khách",
         "tooltip": "",
         "group": "24a10c4b88df729a",
         "order": 0,
@@ -33,7 +33,7 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 500,
+        "x": 530,
         "y": 400,
         "wires": [
             [
@@ -74,7 +74,7 @@
         "type": "ui_switch",
         "z": "bf91fb810eb5ad4a",
         "name": "",
-        "label": "Tắt/Bật Đèn B",
+        "label": "Tắt/Bật Đèn phòng ngủ",
         "tooltip": "",
         "group": "24a10c4b88df729a",
         "order": 0,
@@ -95,7 +95,7 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 500,
+        "x": 530,
         "y": 460,
         "wires": [
             [
@@ -130,11 +130,11 @@
         "type": "ui_time_scheduler",
         "z": "bf91fb810eb5ad4a",
         "group": "a10e63e8134491e0",
-        "name": "Hẹn giờ đèn A",
+        "name": "Hẹn giờ Đèn Phòng Khách",
         "startDay": "1",
         "refresh": 60,
         "devices": [
-            "Đèn A"
+            "Đèn Phòng Khách"
         ],
         "singleOff": true,
         "onlySendChange": false,
@@ -149,7 +149,7 @@
         "order": 1,
         "width": 0,
         "height": 0,
-        "x": 240,
+        "x": 220,
         "y": 600,
         "wires": [
             [
@@ -196,7 +196,8 @@
         "y": 600,
         "wires": [
             [
-                "370f54e719c4fc38"
+                "370f54e719c4fc38",
+                "c28db68e6faf6c4d"
             ]
         ]
     },
@@ -240,11 +241,11 @@
         "type": "ui_time_scheduler",
         "z": "bf91fb810eb5ad4a",
         "group": "f154a3307f684ab4",
-        "name": "Hẹn giờ đèn B",
+        "name": "Hẹn giờ Đèn Phòng Ngủ",
         "startDay": "1",
         "refresh": 60,
         "devices": [
-            "Đèn B"
+            "Đèn Phòng Ngủ"
         ],
         "singleOff": true,
         "onlySendChange": false,
@@ -259,7 +260,7 @@
         "order": 1,
         "width": 0,
         "height": 0,
-        "x": 240,
+        "x": 210,
         "y": 800,
         "wires": [
             [
@@ -857,7 +858,7 @@
         "nodata": "No data",
         "dot": true,
         "ymin": "0",
-        "ymax": "1000",
+        "ymax": "50",
         "removeOlder": "0",
         "removeOlderPoints": "31",
         "removeOlderUnit": "86400",
@@ -1059,7 +1060,8 @@
         "y": 680,
         "wires": [
             [
-                "81e5ee6677e15799"
+                "81e5ee6677e15799",
+                "c28db68e6faf6c4d"
             ]
         ]
     },
@@ -1118,6 +1120,22 @@
         "broker": "787c15375433df86",
         "x": 560,
         "y": 680,
+        "wires": []
+    },
+    {
+        "id": "c28db68e6faf6c4d",
+        "type": "debug",
+        "z": "bf91fb810eb5ad4a",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 560,
         "wires": []
     },
     {
@@ -1195,7 +1213,7 @@
     {
         "id": "a10e63e8134491e0",
         "type": "ui_group",
-        "name": "Thiết đặt hẹn giờ đèn A",
+        "name": "Hẹn giờ đèn phòng khách",
         "tab": "ce156c4f2fa67e8b",
         "order": 2,
         "disp": true,
@@ -1206,7 +1224,7 @@
     {
         "id": "f154a3307f684ab4",
         "type": "ui_group",
-        "name": "Thiết lập hèn giờ đèn B",
+        "name": "Hẹn giờ đèn phòng ngủ",
         "tab": "ce156c4f2fa67e8b",
         "order": 4,
         "disp": true,
