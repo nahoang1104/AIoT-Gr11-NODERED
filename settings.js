@@ -7,6 +7,9 @@ module.exports = {
       permissions: "*"
     }]
   },
+  editorTheme: {
+    language: "en-US"
+  },
   httpAdminRoot: "/admin",   // optional: move editor from "/"
   httpNodeRoot: "/",
   ui: { path: "ui" }
